@@ -1,2 +1,2 @@
 # Alex_Work_Aiden_Lab
-git repo to match my work repository
+Git repo to manage my work directory at the Aiden Lab
