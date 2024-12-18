@@ -43,20 +43,20 @@ print(snp_positions.keys())
 
 #%%
 
+if False:
+    def extract_counts(chrom, positions, N):
+        input_file = f"../large_files/{chrom}_VC_dump.out"
+        output_file = f"../large_files/{chrom}_VC_snp_counts_{N}.out"
+        
+        with open(input_file, "r") as infile, open(output_file, "w") as outfile:
+            lines = infile.readlines()
+            for pos in positions:
+                if pos + N < len(lines):
+                    outfile.write(lines[pos + N])
 
-def extract_counts(chrom, positions):
-    input_file = f"../large_files/{chrom}_VC_dump.out"
-    output_file = f"../large_files/{chrom}_VC_snp_counts.out"
-    
-    with open(input_file, "r") as infile, open(output_file, "w") as outfile:
-        lines = infile.readlines()
-        for pos in positions:
-            if pos < len(lines):
-                outfile.write(lines[pos])
-
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    futures = []
-    for chrom in chroms:
-        if chrom.name in snp_positions:
-            futures.append(executor.submit(extract_counts, chrom.name, snp_positions[chrom.name]))
-    concurrent.futures.wait(futures)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = []
+        for chrom in chroms:
+            if chrom.name in snp_positions:
+                futures.append(executor.submit(extract_counts, chrom.name, snp_positions[chrom.name]))
+        concurrent.futures.wait(futures)

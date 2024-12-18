@@ -1,6 +1,1 @@
-/home/BCM/u258617/.bash_profile: line 13: /usr/bin/byobu-launch: No such file or directory
-File did not contain chr1 normalization vectors for one or both chromosomes at 2500000 BP
-Traceback (most recent call last):
-  File "ref_bias_main.py", line 58, in <module>
-    mzd = gm12878_file.getMatrixZoomData('observed', 'NONE', chromosome.name, chromosome.name, 'BP', lowest_res)
-MemoryError: std::bad_alloc
+slurmstepd: error: *** JOB 3560100 ON voltwn3 CANCELLED AT 2024-12-17T14:43:38 ***

@@ -1,13 +1,16 @@
 #!/bin/bash -l
 
 # SBATCH directives
-#SBATCH --job-name=ref_bias_main_chr1_T5
-#SBATCH --output=ref_bias_main.out
-#SBATCH --error=ref_bias_main.err
+#SBATCH --job-name=ref_bias_main_extract_T2
+#SBATCH --output=ref_bias_main_%j.out
+#SBATCH --error=ref_bias_main_%j.err
 #SBATCH --time=02:00:00
-#SBATCH --partition=int
+#SBATCH --partition=weka
 #SBATCH --ntasks=1
-#SBATCH --mem=100G
+#SBATCH --cpus-per-task=24 
+#SBATCH --mem=200G
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=alexbrazil2001@gmail.com
 
 
 

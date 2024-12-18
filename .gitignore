@@ -1,2 +1,8 @@
 .vscode/
-.large_files/
+large_files/
+github*
+./ref_bias/logs
+slurm*
+logs/
+ref_bias/S5_GM12878.hic
+ref_bias/gm12878_ultramap.hic
