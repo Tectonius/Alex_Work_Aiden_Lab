@@ -3,9 +3,11 @@
 # Define the list of chromosomes
 chromosomes=('chr1' 'chr2' 'chr3' 'chr4' 'chr5' 'chr6' 'chr7' 'chr8' 'chr9' 'chr10' 'chr11' 'chr12' 'chr13' 'chr14' 'chr15' 'chr16' 'chr17' 'chr18' 'chr19' 'chr20' 'chr21' 'chr22' 'chrX')
 
+# Define the list of N values
+Ns=(1 5 10 20 50 100 200 500 1000 2000)
+
 # Output file
 output_file="averages_output.txt"
-
 
 # Function to calculate the average
 calculate_average() {
@@ -29,10 +31,11 @@ calculate_average() {
     fi
 }
 
-# Loop through each chromosome and calculate averages
-for chr in "${chromosomes[@]}"; do
-    calculate_average "../large_files/${chr}_VC_snp_counts.out"
-    calculate_average "../large_files/${chr}_VC_snp_counts_5000.out"
+# Loop through each N value and each chromosome to calculate averages
+for N in "${Ns[@]}"; do
+    for chr in "${chromosomes[@]}"; do
+        calculate_average "../large_files/${chr}_VC_snp_counts_${N}.out"
+    done
 done
 
 echo "Averages calculated and written to $output_file"

@@ -22,7 +22,7 @@ def extract_counts(chrom, positions, Ns):
     
     with open(input_file, "r") as infile:
         lines = infile.readlines()
-        output_files = {N: open(f"../large_files/{chrom}_VC_snp_counts_{N}.out", "a") for N in Ns}
+        output_files = {N: open(f"../large_files/temp/{chrom}_VC_snp_counts_{N}.out", "a") for N in Ns}
         
         for pos in positions:
             for N in Ns:
@@ -39,3 +39,4 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         if chrom.name in snp_positions:
             futures.append(executor.submit(extract_counts, chrom.name, snp_positions[chrom.name], Ns))
     concurrent.futures.wait(futures)
+print("\n=====Done=====\n")
