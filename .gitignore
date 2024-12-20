@@ -6,3 +6,4 @@ slurm*
 logs/
 ref_bias/S5_GM12878.hic
 ref_bias/gm12878_ultramap.hic
+ref_bias/pkl_files
